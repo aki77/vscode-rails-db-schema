@@ -1,0 +1,65 @@
+{
+  "name": "rails-db-schema",
+  "displayName": "Rails DB Schema",
+  "description": "Definition and Completion provider for Rails DB Schema.",
+  "version": "0.1.0",
+  "publisher": "aki77",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.37.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aki77/vscode-rails-db-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aki77/vscode-rails-db-schema/issues"
+  },
+  "activationEvents": [
+    "onLanguage:ruby",
+    "onLanguage:haml",
+    "onLanguage:erb",
+    "onLanguage:slim"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "railsDbSchema.open",
+        "category": "Rails DB Schema",
+        "title": "Open"
+      },
+      {
+        "command": "railsDbSchema.insert",
+        "category": "Rails DB Schema",
+        "title": "Insert"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/inflection": "^1.5.28",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.37.0",
+    "glob": "^7.1.4",
+    "mocha": "^6.1.4",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode-test": "^1.0.2"
+  },
+  "dependencies": {
+    "inflection": "^1.12.0",
+    "sort-on": "^4.1.0"
+  }
+}
