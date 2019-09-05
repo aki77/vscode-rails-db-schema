@@ -1,11 +1,4 @@
-import {
-  Uri,
-  workspace,
-  ProgressLocation,
-  TextDocument,
-  Disposable,
-  window
-} from "vscode";
+import { Uri, workspace, TextDocument, Disposable } from "vscode";
 import * as path from "path";
 import { tableize } from "inflection";
 import Parser, { Table } from "./Parser";
@@ -36,12 +29,17 @@ export default class Schema implements Disposable {
     return Array.from(this.tables.keys());
   }
 
+  public getTableByFileName(fileName: string) {
+    const tableName = this.getTableNameByFileName(fileName);
+    return tableName ? this.tables.get(tableName) : undefined;
+  }
+
   public getTableNameByFileName(fileName: string) {
     if (!fileName.includes("/app/models/")) {
-      return null;
+      return;
     }
     const tableName = tableize(path.basename(fileName, ".rb"));
-    return this.tables.has(tableName) ? tableName : null;
+    return this.tables.has(tableName) ? tableName : undefined;
   }
 
   private parse(document: TextDocument) {

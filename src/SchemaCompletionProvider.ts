@@ -1,14 +1,7 @@
-import {
-  CompletionItemProvider,
-  TextDocument,
-  Position,
-  CompletionItem,
-  CompletionItemKind,
-  MarkdownString,
-  Range
-} from "vscode";
+import { CompletionItemProvider, TextDocument, Position, Range } from "vscode";
 import { tableize } from "inflection";
 import Schema from "./Schema";
+import buildCompletionItems from "./buildCompletionItems";
 
 const LINE_PETTERN = /(?:(\w+)\.|\W\w+)$/;
 
@@ -31,26 +24,12 @@ export default class SchemaCompSchemaletionProvider
     const [, receiver] = matches;
 
     if (!receiver || receiver === "self") {
-      const tableName = this.schema.getTableNameByFileName(document.fileName);
-      return tableName ? this.buildCompletionItems(tableName) : null;
+      const table = this.schema.getTableByFileName(document.fileName);
+      return table ? buildCompletionItems(table) : null;
     }
 
     const tableName = tableize(receiver);
-    return this.buildCompletionItems(tableName);
-  }
-
-  private buildCompletionItems(tableName: string): CompletionItem[] {
     const table = this.schema.getTable(tableName);
-    if (!table) {
-      return [];
-    }
-
-    return Array.from(table.columns.values()).map(colmun => {
-      const markdown = ["```ruby", colmun.lineText, "```"].join("\n");
-      const item = new CompletionItem(colmun.name, CompletionItemKind.Method);
-      item.detail = table.className;
-      item.documentation = new MarkdownString(markdown);
-      return item;
-    });
+    return table ? buildCompletionItems(table) : null;
   }
 }

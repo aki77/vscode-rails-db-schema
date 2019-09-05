@@ -8,6 +8,8 @@ Definition and Completion provider for Rails DB Schema.
 
 ![Completion](https://i.gyazo.com/b096d87941300203e0d09f854862f9d8.gif)
 
+![Validate](https://i.gyazo.com/0fc0f867fd597707d273ad6e9d95a3c6.gif)
+
 ### Definition
 
 ![Definition](https://i.gyazo.com/daa3e4f20fb4621b7037b87a292a588b.gif)
