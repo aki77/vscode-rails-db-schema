@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import Schema from "./Schema";
 import SchemaCompletionProvider from "./SchemaCompletionProvider";
 import SchemaDefinitionProvider from "./SchemaDefinitionProvider";
-import ValidateCompletionProvider from "./ValidateCompletionProvider";
+import SymbolCompletionProvider from "./SymbolCompletionProvider";
 import Commands from "./Commands";
 
 const GLOB_PATTERN = "db/schema.rb";
@@ -41,8 +41,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.languages.registerCompletionItemProvider(
-      { pattern: "**/app/models/**/*.rb" },
-      new ValidateCompletionProvider(schema),
+      SELECTOR,
+      new SymbolCompletionProvider(schema),
       ":"
     )
   );

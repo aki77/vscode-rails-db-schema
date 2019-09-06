@@ -4,6 +4,10 @@ All notable changes to the "rails-db-schema" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.2.1
+
+- Added human_attribute_name completion
+
 ## 0.2.0
 
 - Added ValidateCompletionProvider

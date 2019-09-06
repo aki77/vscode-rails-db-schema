@@ -26,5 +26,5 @@ Definition and Completion provider for Rails DB Schema.
 
 ## TODO
 
-- [ ] `Model.human_attribute_name` completion
+- [x] `Model.human_attribute_name` completion
 - [ ] Test
