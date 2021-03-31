@@ -4,6 +4,10 @@ All notable changes to the "rails-db-schema" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.2.3
+
+- Upgrade dependencies
+
 ## 0.2.2
 
 - Upgrade dependencies
