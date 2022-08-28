@@ -19,10 +19,7 @@
     "url": "https://github.com/aki77/vscode-rails-db-schema/issues"
   },
   "activationEvents": [
-    "onLanguage:ruby",
-    "onLanguage:haml",
-    "onLanguage:erb",
-    "onLanguage:slim"
+    "workspaceContains:db/schema.rb"
   ],
   "main": "./out/extension.js",
   "contributes": {
