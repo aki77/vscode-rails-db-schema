@@ -2,7 +2,7 @@
   "name": "rails-db-schema",
   "displayName": "Rails DB Schema",
   "description": "Definition and Completion provider for Rails DB Schema.",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "publisher": "aki77",
   "icon": "images/icon.png",
   "license": "MIT",
