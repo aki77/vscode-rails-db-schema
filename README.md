@@ -24,6 +24,23 @@ Definition and Completion provider for Rails DB Schema.
 
 ![insert](https://i.gyazo.com/d3e25423f3381e7c48a044729046856d.gif)
 
+## Tips
+
+If you want to use this extension with the `config.active_record.schema_format = :sql` setting, you can add the following code to your `Rakefile` to make it work. ([\#8](https://github.com/aki77/vscode-rails-db-schema/issues/8))
+
+
+```ruby
+if Rails.env.development?
+  %w[db:migrate db:rollback db:migrate:redo].each do |task_name|
+    Rake::Task[task_name].enhance do
+      schema_format = ActiveRecord.schema_format
+      ActiveRecord.schema_format = :ruby
+      Rake::Task['db:schema:dump'].invoke
+      ActiveRecord.schema_format = schema_format
+  end
+end
+```
+
 ## TODO
 
 - [x] `Model.human_attribute_name` completion
