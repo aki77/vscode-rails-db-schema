@@ -7,7 +7,6 @@ import {
   QuickPick,
   QuickPickItem
 } from "vscode";
-import sortOn from "sort-on";
 
 export default class Commands {
   private quickPick: QuickPick<QuickPickItem>;
@@ -36,6 +35,8 @@ export default class Commands {
       .getTableNames()
       .map(tableName => ({ label: tableName }));
 
+    const sortOn = (await import("sort-on")).default;
+
     this.quickPick.busy = true;
     this.quickPick.value = "";
     this.quickPick.placeholder = "Select a Table";
@@ -57,7 +58,7 @@ export default class Commands {
     editor.revealRange(editor.selection, TextEditorRevealType.InCenter);
   }
 
-  private showColumns(tableName: string) {
+  private async showColumns(tableName: string) {
     const table = this.schema.getTable(tableName);
     if (!table) {
       return;
@@ -67,6 +68,8 @@ export default class Commands {
       label: column.name,
       description: column.lineText
     }));
+
+    const sortOn = (await import("sort-on")).default;
 
     this.quickPick.busy = true;
     this.quickPick.value = "";
