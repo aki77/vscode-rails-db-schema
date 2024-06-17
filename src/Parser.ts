@@ -29,7 +29,7 @@ export default class Parser {
     for (const line of this.documentLines(this.document)) {
       const text = line.text;
 
-      if (text.trimLeft().startsWith("create_table")) {
+      if (text.trimStart().startsWith("create_table")) {
         const matches = text.match(CREATE_TABLE_REGEX);
         const tableName = matches![1];
         table.line = line.lineNumber;
