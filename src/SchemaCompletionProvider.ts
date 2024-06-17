@@ -3,9 +3,9 @@ import { tableize } from "inflection";
 import Schema from "./Schema";
 import buildCompletionItems from "./buildCompletionItems";
 
-const LINE_PETTERN = /(?:(\w+)\.|\W\w+)$/;
+const LINE_PATTERN = /(?:(\w+)\.|\W\w+)$/;
 
-export default class SchemaCompSchemaletionProvider
+export default class SchemaCompletionProvider
   implements CompletionItemProvider {
   constructor(private schema: Schema) {}
 
@@ -16,7 +16,7 @@ export default class SchemaCompSchemaletionProvider
         new Position(position.line, position.character)
       )
     );
-    const matches = text.match(LINE_PETTERN);
+    const matches = text.match(LINE_PATTERN);
     if (!matches) {
       return;
     }

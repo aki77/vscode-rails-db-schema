@@ -6,7 +6,7 @@ import Schema from "./Schema";
 const MODEL_FILENAME_PATTERN = /\/app\/models\/.*\.rb$/;
 const METHOD_ARGS_PATTERN = /(\w+)\.human_attribute_name[\s(]:$/;
 
-export default class SymbolCompSchemaletionProvider
+export default class SymbolCompletionProvider
   implements CompletionItemProvider {
   constructor(private schema: Schema) {}
 
