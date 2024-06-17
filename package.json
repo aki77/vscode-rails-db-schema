@@ -48,14 +48,14 @@
     "@types/inflection": "^1.5.28",
     "@types/node": "^16",
     "@types/vscode": "^1.37.0",
-    "@typescript-eslint/eslint-plugin": "^5.35.1",
-    "@typescript-eslint/parser": "^5.35.1",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
     "eslint": "^8.23.0",
     "typescript": "^5.1.3",
     "vscode-test": "^1.0.2"
   },
   "dependencies": {
-    "inflection": "^1.12.0",
-    "sort-on": "^4.1.0"
+    "inflection": "^3.0.0",
+    "sort-on": "^6.0.0"
   }
 }
