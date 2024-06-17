@@ -7,7 +7,7 @@ import {
   QuickPick,
   QuickPickItem
 } from "vscode";
-import * as sortOn from "sort-on";
+import sortOn from "sort-on";
 
 export default class Commands {
   private quickPick: QuickPick<QuickPickItem>;
