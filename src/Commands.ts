@@ -35,14 +35,12 @@ export default class Commands {
       .getTableNames()
       .map(tableName => ({ label: tableName }));
 
-    const sortOn = (await import("sort-on")).default;
-
     this.quickPick.busy = true;
     this.quickPick.value = "";
     this.quickPick.placeholder = "Select a Table";
     this.quickPick.step = 1;
     this.quickPick.show();
-    this.quickPick.items = sortOn(items, "label");
+    this.quickPick.items = [...items].sort((a, b) => a.label.localeCompare(b.label));
     this.quickPick.busy = false;
   }
 
@@ -69,13 +67,11 @@ export default class Commands {
       description: column.lineText
     }));
 
-    const sortOn = (await import("sort-on")).default;
-
     this.quickPick.busy = true;
     this.quickPick.value = "";
     this.quickPick.step = 2;
     this.quickPick.placeholder = "Select a Column";
-    this.quickPick.items = sortOn(items, "label");
+    this.quickPick.items = [...items].sort((a, b) => a.label.localeCompare(b.label));
     this.quickPick.busy = false;
   }
 

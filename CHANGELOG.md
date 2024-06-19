@@ -4,6 +4,10 @@ All notable changes to the "rails-db-schema" extension will be documented in thi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+# 0.2.9
+
+- Remove `sort-on` from dependencies
+
 # 0.2.8
 
 - Upgrade dependencies
